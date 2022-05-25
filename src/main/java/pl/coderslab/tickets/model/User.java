@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -14,7 +15,7 @@ public class User {
     private long id;
 
     @Column(length = 256)
-    @NotNull                   // czemu nie mogę znaleźć @NotBlank
+    @NotBlank
     private String firstName;
 
     @Column(length = 256)
@@ -25,14 +26,30 @@ public class User {
     @NotNull
     private String email;
 
-    @Column
-    @NotNull
-    private String paswoord;
+    @OneToOne
+    @JoinColumn(name = "password_id")
+    private Password pasword;
 
-    @Column
-    @NotNull
-    private String department;
+    public Password getPasword() {
+        return pasword;
+    }
 
-    @Column
-    private boolean admin;
+    public void setPasword(Password pasword) {
+        this.pasword = pasword;
+    }
+    private Privileges privileges;
+
+    private Position position;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 }

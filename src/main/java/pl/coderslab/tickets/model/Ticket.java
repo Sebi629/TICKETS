@@ -9,7 +9,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tickets")
@@ -19,17 +21,21 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @ManyToMany
     @NotNull
-    private String email;
+    private List<User> users = new ArrayList<>();
 
     @Column
     @NotNull
     private String description;
 
-    @Column
-    @NotNull
-    private String department;
+    @OneToOne
+    @JoinColumn(name = "administration_user_id")
+    private User administration_user;
+
+    @OneToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     @Column
     @DateTimeFormat
@@ -44,5 +50,25 @@ public class Ticket {
     private String edited;
 
     @Column
-    private boolean admin;
+    private boolean accepted;
+
+    private Priority priority;
+
+    private boolean done;
+
+    public User getAdministration_user() {
+        return administration_user;
+    }
+
+    public void setAdministration_user(User administration_user) {
+        this.administration_user = administration_user;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 }
