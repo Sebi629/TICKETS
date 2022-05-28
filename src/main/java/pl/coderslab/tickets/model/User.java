@@ -2,12 +2,18 @@ package pl.coderslab.tickets.model;
 
 import com.sun.istack.NotNull;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+
 public class User {
 
     @Id
@@ -52,4 +58,9 @@ public class User {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    public User() {
+    }
+
 }
+
