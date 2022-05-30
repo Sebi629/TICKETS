@@ -1,6 +1,6 @@
 package pl.coderslab.tickets.model;
 
-public enum Privileges {
+public enum Role {
 
     ADMIN,
     USER

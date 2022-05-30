@@ -4,6 +4,7 @@ package pl.coderslab.tickets.model;
 
 
 import com.sun.istack.NotNull;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,23 +16,29 @@ import java.util.List;
 
 @Entity
 @Table(name = "tickets")
+@Setter
+@Getter
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
+
 public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @ManyToMany
+    @ManyToOne
+    @JoinColumn(name = "creator_id")
     @NotNull
-    private List<User> users = new ArrayList<>();
+    private User user;
 
     @Column
     @NotNull
     private String description;
 
-    @OneToOne
-    @JoinColumn(name = "administration_user_id")
-    private User administration_user;
+   @ManyToOne
+    @JoinColumn(name = "assigned_user_id")
+    private User assingnedUser;
 
     @OneToOne
     @JoinColumn(name = "department_id")
@@ -56,19 +63,7 @@ public class Ticket {
 
     private boolean done;
 
-    public User getAdministration_user() {
-        return administration_user;
-    }
 
-    public void setAdministration_user(User administration_user) {
-        this.administration_user = administration_user;
-    }
 
-    public Department getDepartment() {
-        return department;
-    }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
 }
