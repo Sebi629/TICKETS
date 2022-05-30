@@ -2,18 +2,20 @@ package pl.coderslab.tickets.model;
 
 import com.sun.istack.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
-
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class User {
 
     @Id
@@ -30,26 +32,29 @@ public class User {
 
     @Column
     @NotNull
+    @Email
     private String email;
 
     @OneToOne
     @JoinColumn(name = "password_id")
-    private Password pasword;
+
+    private Password password;
 
     public Password getPasword() {
-        return pasword;
+        return password;
     }
 
     public void setPasword(Password pasword) {
-        this.pasword = pasword;
+        this.password = pasword;
     }
-    private Privileges privileges;
+    private Role role;
 
     private Position position;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
+
 
     public Department getDepartment() {
         return department;
@@ -59,8 +64,7 @@ public class User {
         this.department = department;
     }
 
-    public User() {
-    }
+
 
 }
 
