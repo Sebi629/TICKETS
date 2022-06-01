@@ -8,13 +8,6 @@ import java.util.List;
 @Repository
 public interface TicketsRepository extends JpaRepository<Ticket, Long> {
 
-       Ticket getTicketById(Long id);
 
-       Ticket save(Ticket ticket);
-
-
-
-//       Ticket save();
-//       List<Ticket> getALL();
 
 }
