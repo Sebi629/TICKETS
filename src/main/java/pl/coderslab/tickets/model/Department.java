@@ -8,6 +8,8 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
+@Getter
+@Setter
 @NoArgsConstructor
 @EqualsAndHashCode
 @AllArgsConstructor
@@ -25,7 +27,6 @@ public class Department {
     @Override
     public String toString() {
         return departmentName ;
-
 
     }
 }

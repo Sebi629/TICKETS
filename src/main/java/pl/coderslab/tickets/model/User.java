@@ -13,7 +13,6 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class User {
 
@@ -34,7 +33,7 @@ public class User {
     @Email
     private String email;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "password_id")
     private Password password;
 
@@ -46,10 +45,15 @@ public class User {
     @JoinColumn(name = "department_id")
     private Department department;
 
-
-
-
-
-
+    public User(long id, String firstName, String lastName, String email, Password password, Role role, Position position, Department department) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.position = position;
+        this.department = department;
+    }
 }
 
