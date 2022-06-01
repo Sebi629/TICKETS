@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -21,7 +20,7 @@
     <form:input path="email" type="text"/><br>
 
     <label>Password:</label>
-    <form:input  path="password" type="text"/><br>
+    <form:password  path="password"/><br>
 
     <label>Role:</label>
     <form:select path="role">
@@ -34,8 +33,8 @@
     </form:select><br>
 
     <label>Department:</label>
-    <form:select itemValue="id" itemLabel="departmentName" path="department" items="${department}">
-<%--        <form:options itemLabel="departmentName" items="${department}" />--%>
+    <form:select  path="department">
+        <form:options itemLabel="departmentName" items="${department}"/> >
     </form:select><br>
 
     <input type="submit" value="save">

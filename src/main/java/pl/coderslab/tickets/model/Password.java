@@ -7,8 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
-@Setter
-@Getter
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,5 +23,25 @@ public class Password {
     @Override
     public String toString() {
         return password;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Password(String password) {
+        this.password = password;
     }
 }
