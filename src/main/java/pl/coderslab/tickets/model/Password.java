@@ -1,10 +1,17 @@
 package pl.coderslab.tickets.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Password {
 
     @Id
@@ -13,4 +20,9 @@ public class Password {
 
     @NotBlank
     private String password;
+
+    @Override
+    public String toString() {
+        return password;
+    }
 }

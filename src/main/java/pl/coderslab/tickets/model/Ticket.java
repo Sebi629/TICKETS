@@ -4,15 +4,19 @@ package pl.coderslab.tickets.model;
 
 
 import com.sun.istack.NotNull;
-import lombok.*;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "tickets")
@@ -45,16 +49,26 @@ public class Ticket {
     private Department department;
 
     @Column
-    @DateTimeFormat
-    private Date date;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private LocalDate date;
 
     @Column
     @CreatedDate
-    private String created;
+    private LocalDateTime created;
+
+    @PrePersist
+    public void prePersist() {
+        created = LocalDateTime.now();
+    }
 
     @Column
     @LastModifiedDate
-    private String edited;
+    private LocalDateTime edited;
+
+    @PreUpdate
+    public void preUpdate() {
+        edited = LocalDateTime.now();
+    }
 
     @Column
     private boolean accepted;

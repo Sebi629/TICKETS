@@ -1,7 +1,6 @@
 package pl.coderslab.tickets.model;
 
 import com.sun.istack.NotNull;
-
 import lombok.*;
 
 
@@ -37,16 +36,8 @@ public class User {
 
     @OneToOne
     @JoinColumn(name = "password_id")
-
     private Password password;
 
-    public Password getPasword() {
-        return password;
-    }
-
-    public void setPasword(Password pasword) {
-        this.password = pasword;
-    }
     private Role role;
 
     private Position position;
@@ -56,13 +47,7 @@ public class User {
     private Department department;
 
 
-    public Department getDepartment() {
-        return department;
-    }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
 
 
 

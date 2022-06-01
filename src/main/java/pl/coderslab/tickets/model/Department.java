@@ -1,24 +1,31 @@
 package pl.coderslab.tickets.model;
 
 import lombok.*;
-import org.springframework.context.annotation.Bean;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
+@AllArgsConstructor
+@ToString
 public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     @NotBlank
-    private String description;
+    private String departmentName;
+
+    @Override
+    public String toString() {
+        return departmentName ;
+
+
+    }
 }

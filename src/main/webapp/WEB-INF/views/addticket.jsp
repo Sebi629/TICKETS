@@ -8,33 +8,27 @@
     <title>Title</title>
 </head>
 <body>
+
 <form:form  method="post" modelAttribute="ticket">
 
     <label>User:</label>
-
-
     <form:select itemValue="id" itemLabel="email" path="user"
-                 items="${users}" />
-
-
+                 items="${users}" /><br>
 
     <label>Description:</label>
-<form:input type="text"  path="description"/>
+<form:input type="text"  path="description"/><br>
 
     <label>Priority:</label>
     <form:select path="priority">
-        <form:option value="-" label="--Please Select--"/>
         <form:options item="${priority}"/>
-    </form:select>
+    </form:select><br>
 
-<%--    <label>Department:</label>--%>
-<%--    <form:select path="department">--%>
-<%--        <form:option value="-" label="--Please Select--"/>--%>
-<%--        <form:options item="${department}"/>--%>
-<%--    </form:select>--%>
+    <label>Department:</label>
+    <form:select path="department"
+                 items="${department}" /><br>
 
-    <form:select itemValue="id" itemLabel="email" path="department"
-                 items="${department}" />
+    <label>Date:</label>
+    <form:input type="date" path="date"/><br>
 
     <input type="submit" value="save">
 </form:form>
