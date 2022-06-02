@@ -41,7 +41,5 @@ public class Password {
         this.password = password;
     }
 
-    public Password(String password) {
-        this.password = password;
-    }
+
 }

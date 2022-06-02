@@ -7,11 +7,11 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Czy chcesz usunąć pracownika o id: ${user.id}</h2>
-<form:form method="post" action="/deleteuser/${user.id}" modelAttribute="user">
+<h2>Czy chcesz usunąć pracownika o id: ${ticket.id}</h2>
+<form:form method="post" action="/deleteticket/${ticket.id}" modelAttribute="ticket">
     <input type="submit" value="TAK">
 </form:form>
-<form:form method="get" action="/user" modelAttribute="user">
+<form:form method="get" action="/ticket" modelAttribute="ticket">
     <input type="submit" value="NIE">
 </form:form>
 

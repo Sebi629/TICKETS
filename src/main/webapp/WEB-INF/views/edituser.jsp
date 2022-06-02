@@ -7,7 +7,9 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="user">
+<form:form method="post" action="/edituser" modelAttribute="user">
+
+    <form:hidden path="id"/>
 
     <label>First Name:</label>
     <form:input path="firstName" type="text"/><br>
@@ -19,7 +21,7 @@
     <form:input path="email" type="text"/><br>
 
     <label>Password:</label>
-    <form:password  path="password"/><br>
+    <form:password  path="password.password"/><br>
 
     <label>Role:</label>
     <form:select path="role">

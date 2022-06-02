@@ -7,7 +7,9 @@
     <title>Title</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="ticket">
+<form:form method="post" action="/editticket" modelAttribute="ticket">
+
+    <form:hidden path="id"/>
 
     <label>User:</label>
     <form:select itemValue="id" itemLabel="email" path="user"

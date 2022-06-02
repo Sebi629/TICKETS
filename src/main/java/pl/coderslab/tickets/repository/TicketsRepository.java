@@ -9,5 +9,5 @@ import java.util.List;
 public interface TicketsRepository extends JpaRepository<Ticket, Long> {
 
 
-
+    Ticket findUserById(long id);
 }

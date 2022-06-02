@@ -44,12 +44,7 @@ public class TicketController {
         model.addAttribute("users", userList);
         model.addAttribute("tickets", ticketList);
         return "ticket";
-////        Date date = new Date();
-////        ticketList.add(new Ticket(1, "adadaddaa",new Date()));
-//        ticketList.add(new Ticket(2, "bbbbbbbbb", date));
 
-//        User user = new User();
-//        model.addAttribute("tickets",123);
 
     }
     @RequestMapping(value = "/addticket", method = RequestMethod.GET)
@@ -66,12 +61,7 @@ public class TicketController {
         ticketsRepository.save(ticket);
         return "redirect:/ticket";
     }
-//    @RequestMapping(value = "/home", method = RequestMethod.GET)
-//    public String home(Model model){
-//        List<Department> departmentList = departmentRepository.findAll();
-//        model.addAttribute("department", departmentList);
-//        return "home";
-//    }
+
     @RequestMapping(value = "/editticket/{id}", method = RequestMethod.GET)
     public String editTicket(@PathVariable long id, Model model) {
         List<User> userList = usersRepository.findAll();
@@ -87,8 +77,14 @@ public class TicketController {
         ticketsRepository.save(ticket);
             return "redirect:/ticket";
         }
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String delete(@PathVariable long id){
+    @RequestMapping(value = "/pytanieticket/{id}", method = RequestMethod.GET)
+    public String pytanieTicket(@PathVariable long id,Model model){
+        model.addAttribute("user", ticketsRepository.findUserById(id));
+        return "pytanieticket";
+    }
+
+    @RequestMapping(value = "/deleteticket/{id}", method = RequestMethod.POST)
+    public String deleteTicket(@PathVariable long id){
         ticketsRepository.deleteById(id);
         return "redirect:/ticket";
     }

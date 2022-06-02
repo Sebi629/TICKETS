@@ -73,7 +73,7 @@
             <td>
 
 <%--                <a href='<c:url value="/userdelete?id=${user.id}"/>'>Usuń</a>--%>
-    <a href="<c:url value="/delete/${ticket.id}"/>">Delete</a>
+    <a href="<c:url value="/pytanieticket/${ticket.id}"/>">Delete</a>
 <%--                <a href='<c:url value="editticket?id=${ticked.id}"/>'>Edit</a>--%>
     <a href="<c:url value="/editticket/${ticket.id}"/>">Edit</a>
 
