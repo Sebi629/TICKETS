@@ -42,17 +42,11 @@
 
         <th>Done</th>
 
-<%--        <th>Akcja</th>--%>
+        <th>Akcja</th>
 
     </tr>
 
-<%--<c:forEach items="${users}" var="user">--%>
 
-<%--    <tr>--%>
-<%--        <td>${eser.email}</td>--%>
-<%--    </tr>--%>
-
-<%--</c:forEach>--%>
 
     <c:forEach items="${tickets}" var="ticket">
 
@@ -79,8 +73,9 @@
             <td>
 
 <%--                <a href='<c:url value="/userdelete?id=${user.id}"/>'>Usuń</a>--%>
-
-<%--                <a href='<c:url value="/useredit?id=${user.id}"/>'>Edit</a>--%>
+    <a href="<c:url value="/delete/${ticket.id}"/>">Delete</a>
+<%--                <a href='<c:url value="editticket?id=${ticked.id}"/>'>Edit</a>--%>
+    <a href="<c:url value="/editticket/${ticket.id}"/>">Edit</a>
 
 <%--                <a href='<c:url value="/usershow?id=${user.id}"/>'>Pokaż</a>--%>
 

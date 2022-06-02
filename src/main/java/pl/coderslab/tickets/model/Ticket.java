@@ -40,7 +40,7 @@ public class Ticket {
     @NotNull
     private String description;
 
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "assigned_user_id")
     private User assingnedUser;
 

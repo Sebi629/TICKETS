@@ -82,7 +82,9 @@ Tickets:<br>
 
                     <%--                <a href='<c:url value="/userdelete?id=${user.id}"/>'>Usuń</a>--%>
 
-                    <%--                <a href='<c:url value="/useredit?id=${user.id}"/>'>Edit</a>--%>
+                        <a href="<c:url value="/edituser/${user.id}"/>">Edit</a>
+
+                        <a href="<c:url value="/pytanieuser/${user.id}"/>">Delete</a>
 
                     <%--                <a href='<c:url value="/usershow?id=${user.id}"/>'>Pokaż</a>--%>
 
