@@ -3,6 +3,7 @@ package pl.coderslab.tickets.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.tickets.model.Department;
@@ -13,6 +14,7 @@ import pl.coderslab.tickets.repository.DepartmentRepository;
 import pl.coderslab.tickets.repository.TicketsRepository;
 import pl.coderslab.tickets.repository.UsersRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -64,13 +66,33 @@ public class TicketController {
         ticketsRepository.save(ticket);
         return "redirect:/ticket";
     }
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String home(Model model){
+//    @RequestMapping(value = "/home", method = RequestMethod.GET)
+//    public String home(Model model){
+//        List<Department> departmentList = departmentRepository.findAll();
+//        model.addAttribute("department", departmentList);
+//        return "home";
+//    }
+    @RequestMapping(value = "/editticket/{id}", method = RequestMethod.GET)
+    public String editTicket(@PathVariable long id, Model model) {
+        List<User> userList = usersRepository.findAll();
         List<Department> departmentList = departmentRepository.findAll();
         model.addAttribute("department", departmentList);
-        return "home";
+        model.addAttribute("users", userList);
+        model.addAttribute("ticket", ticketsRepository.findById(id));
+        return "editticket";
+    }
 
+    @RequestMapping(value = "/editticket", method = RequestMethod.POST)
+    public String editTicket(Ticket ticket) {
+        ticketsRepository.save(ticket);
+            return "redirect:/ticket";
+        }
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String delete(@PathVariable long id){
+        ticketsRepository.deleteById(id);
+        return "redirect:/ticket";
+    }
     }
 
 
-}
+
