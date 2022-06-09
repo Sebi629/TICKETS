@@ -7,7 +7,10 @@
     <title>Title</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="ticket">
+<h2>Edytowanie ticketu</h2>
+<form:form method="post" action="/editticket" modelAttribute="ticket">
+
+    <form:hidden path="id"/>
 
     <label>User:</label>
     <form:select itemValue="id" itemLabel="email" path="user"
@@ -24,6 +27,11 @@
     <label>Department:</label>
     <form:select path="department"
                  items="${department}" /><br>
+
+    <label>Status:</label>
+    <form:select path="status">
+        <form:options item="${status}"/>
+    </form:select><br>
 
     <label>Date:</label>
     <form:input type="date" path="date"/><br>

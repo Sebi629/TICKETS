@@ -52,7 +52,7 @@ public class Ticket {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate date;
 
-    @Column
+    @Column(updatable = false)
     @CreatedDate
     private LocalDateTime created;
 
@@ -75,9 +75,14 @@ public class Ticket {
 
     private Priority priority;
 
-    private boolean done;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
+    public Status getStatus() {
+        return status;
+    }
 
-
-
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
