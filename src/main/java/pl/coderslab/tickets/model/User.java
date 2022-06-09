@@ -55,5 +55,10 @@ public class User {
         this.position = position;
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return  email;
+    }
 }
 

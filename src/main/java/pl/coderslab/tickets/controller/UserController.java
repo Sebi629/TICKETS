@@ -17,6 +17,7 @@ import java.util.List;
 @Controller
 public class UserController {
 
+
     Role role;
     Department department;
     Password password;
@@ -36,6 +37,7 @@ public class UserController {
 
     @RequestMapping(value = "/adduser", method = RequestMethod.GET)
     public String adduser(Model model){
+
         List<Department> departmentList = departmentRepository.findAll();
         model.addAttribute("department", departmentList);
         model.addAttribute("user", new User());

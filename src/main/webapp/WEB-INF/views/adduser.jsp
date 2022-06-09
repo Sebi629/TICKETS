@@ -7,6 +7,7 @@
     <title>Title</title>
 </head>
 <body>
+<h2>Dodawanie nowego usera</h2>
 
 <form:form method="post" modelAttribute="user">
 

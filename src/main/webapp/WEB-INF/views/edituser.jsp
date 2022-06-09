@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+<h2>Edytowanie usera</h2>
 
 <form:form method="post" action="/edituser" modelAttribute="user">
 

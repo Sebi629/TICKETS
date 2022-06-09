@@ -7,24 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
 
-Tickets:<br>
-<%--<c:forEach items="${users}" var="user">--%>
-<%--    ${user.id}--%>
-<%--    ${user.firstName}--%>
-<%--    ${user.lastName}--%>
-<%--    ${user.email}--%>
-<%--    ${user.password}--%>
-<%--    ${user.role}--%>
-<%--    ${user.position}--%>
-<%--    ${user.department}--%>
-<%--    <br>--%>
-<%--</c:forEach>--%>
+<h2>Users:</h2><br>
+
 
 <table class="table">
 
@@ -50,13 +41,7 @@ Tickets:<br>
 
     </tr>
 
-    <%--<c:forEach items="${users}" var="user">--%>
 
-    <%--    <tr>--%>
-    <%--        <td>${eser.email}</td>--%>
-    <%--    </tr>--%>
-
-    <%--</c:forEach>--%>
 
     <c:forEach items="${users}" var="user">
 
@@ -80,13 +65,13 @@ Tickets:<br>
 
             <td>
 
-                    <%--                <a href='<c:url value="/userdelete?id=${user.id}"/>'>Usuń</a>--%>
+
 
                         <a href="<c:url value="/edituser/${user.id}"/>">Edit</a>
 
                         <a href="<c:url value="/pytanieuser/${user.id}"/>">Delete</a>
 
-                    <%--                <a href='<c:url value="/usershow?id=${user.id}"/>'>Pokaż</a>--%>
+
 
             </td>
 
@@ -95,6 +80,9 @@ Tickets:<br>
     </c:forEach>
 
 </table>
+<form:form method="get" action="/adduser" modelAttribute="user">
+    <input type="submit" value="Add new user">
+</form:form>
 
 </body>
 </html>
