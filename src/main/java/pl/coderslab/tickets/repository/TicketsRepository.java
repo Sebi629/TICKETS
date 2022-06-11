@@ -13,6 +13,6 @@ public interface TicketsRepository extends JpaRepository<Ticket, Long> {
 
     Ticket findUserById(long id);
 
-    @Query(value = "SELECT * FROM TICKETS WHERE department_id=:departmentid and status=:status", nativeQuery = true)
-    List<Ticket> search(@Param("departmentid") long departmentid, @Param("status")String status);
+    @Query(value = "SELECT * FROM tickets WHERE department_id LIKE %:departmentid% and status LIKE %:status%", nativeQuery = true)
+    List<Ticket> search(@Param("departmentid") String departmentid, @Param("status")String status);
 }

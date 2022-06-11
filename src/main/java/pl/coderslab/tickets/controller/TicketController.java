@@ -7,14 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.tickets.dao.FiltrDao;
 import pl.coderslab.tickets.model.*;
 import pl.coderslab.tickets.repository.DepartmentRepository;
 import pl.coderslab.tickets.repository.TicketsRepository;
 import pl.coderslab.tickets.repository.UsersRepository;
+import pl.coderslab.tickets.service.TicketService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -33,13 +32,15 @@ public class TicketController {
     private final UsersRepository usersRepository ;
     private final DepartmentRepository departmentRepository;
     private final FiltrDao filtrDao;
+    private final TicketService ticketService;
 
 
-    public TicketController(TicketsRepository ticketsRepository, UsersRepository usersRepository, DepartmentRepository departmentRepository, FiltrDao filtrDao) {
+    public TicketController(TicketsRepository ticketsRepository, UsersRepository usersRepository, DepartmentRepository departmentRepository, FiltrDao filtrDao, TicketService ticketService) {
         this.ticketsRepository = ticketsRepository;
         this.usersRepository = usersRepository;
         this.departmentRepository = departmentRepository;
         this.filtrDao = filtrDao;
+        this.ticketService = ticketService;
     }
 
 
@@ -132,13 +133,8 @@ public class TicketController {
     }
     @RequestMapping(value = "/search" , method = RequestMethod.POST)
     public String search(Filtr filtr, Model model){
-        long departmentid=filtr.getDepartment().getId();
-        String status = String.valueOf(filtr.getStatus());
-
-        List<Ticket> ticketList = ticketsRepository.search(departmentid,status);
-        List<Department> departmentList = departmentRepository.findAll();
-        model.addAttribute("tickets", ticketList);
-        model.addAttribute("department", departmentList);
+        model.addAttribute("tickets", ticketService.search(filtr));
+        model.addAttribute("department", departmentRepository.findAll() );
         return "ticket";
 
     }
