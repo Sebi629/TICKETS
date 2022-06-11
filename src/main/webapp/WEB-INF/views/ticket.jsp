@@ -12,7 +12,7 @@
 <%--<form:form method="post" action="/ticketByDepartment" modelAttribute="filtr">--%>
     <label>Department</label>
     <form:select path="department">
-<%--        <form:option value="-" label="--Please Select--"/>--%>
+        <form:option value="" label="--Please Select--"/>
         <form:options itemLabel="departmentName" items="${department}"/>
     </form:select>
 <%--    <label>Priority</label>--%>
@@ -22,7 +22,7 @@
 <%--    </form:select>--%>
     <label>Status</label>
 <form:select path="status">
-<%--    <form:option value="-" label="--Please Select--"/>--%>
+    <form:option value="" label="--Please Select--"/>
     <form:options items="${status}" itemValue="name"/>
 </form:select>
     <input type="submit" value="search">
