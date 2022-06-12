@@ -120,7 +120,6 @@ public class TicketController {
     public String ticketByStatus( Filtr filtr, Model model){
         List<Ticket> ticketsByStatusList = filtrDao.findAllByStatus(filtr.getStatus());
         model.addAttribute("tickets", ticketsByStatusList);
-//        model.addAttribute("status", Status.values());
         return "ticket";
     }
     @RequestMapping(value = "/ticketByDepartment", method = RequestMethod.POST)
@@ -135,6 +134,7 @@ public class TicketController {
     public String search(Filtr filtr, Model model){
         model.addAttribute("tickets", ticketService.search(filtr));
         model.addAttribute("department", departmentRepository.findAll() );
+        model.addAttribute("user",usersRepository.findAll());
         return "ticket";
 
     }

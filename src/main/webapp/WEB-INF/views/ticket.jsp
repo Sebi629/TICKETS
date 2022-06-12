@@ -10,16 +10,21 @@
 
 <form:form method="post" action="/search" modelAttribute="filtr">
 <%--<form:form method="post" action="/ticketByDepartment" modelAttribute="filtr">--%>
+    <label>User</label>
+    <form:select path="user">
+        <form:option value="" label="--Please Select--"/>
+        <form:options itemLabel="email" items="${users}"/>
+    </form:select>
     <label>Department</label>
     <form:select path="department">
         <form:option value="" label="--Please Select--"/>
         <form:options itemLabel="departmentName" items="${department}"/>
     </form:select>
-<%--    <label>Priority</label>--%>
-<%--    <form:select path="priority">--%>
-<%--        <form:option value="-" label="--Please Select--"/>--%>
-<%--        <form:options item="${priority}"/>--%>
-<%--    </form:select>--%>
+    <label>Priority</label>
+    <form:select path="priority">
+        <form:option value="" label="--Please Select--"/>
+        <form:options items="${priority}" itemValue="value"/>
+    </form:select>
     <label>Status</label>
 <form:select path="status">
     <form:option value="" label="--Please Select--"/>
