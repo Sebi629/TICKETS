@@ -21,6 +21,8 @@ public class TicketService {
     public List<Ticket> search(Filtr filtr){
         String departmentid;
         String status;
+        String priority;
+        String creatorid;
         if(filtr.getDepartment()==null){
             departmentid="";
         }else{
@@ -31,7 +33,17 @@ public class TicketService {
         }else{
             status=String.valueOf(filtr.getStatus());
         }
-        List<Ticket> ticketList = ticketsRepository.search(departmentid,status);
+        if (filtr.getPriority() == null) {
+            priority="";
+        }else{
+            priority=String.valueOf(filtr.getPriority());
+        }
+        if(filtr.getUser()==null){
+            creatorid="";
+        }else{
+            creatorid=String.valueOf(filtr.getUser().getId());
+        }
+        List<Ticket> ticketList = ticketsRepository.search(departmentid,status,priority,creatorid);
         return ticketList;
     }
 }

@@ -73,6 +73,7 @@ public class Ticket {
     @Column
     private boolean accepted;
 
+    @Enumerated(EnumType.STRING)
     private Priority priority;
 
     @Enumerated(EnumType.STRING)
