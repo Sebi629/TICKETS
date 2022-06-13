@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.tickets.model.Department;
-import pl.coderslab.tickets.model.Password;
+
 import pl.coderslab.tickets.model.Role;
 import pl.coderslab.tickets.model.User;
 import pl.coderslab.tickets.repository.DepartmentRepository;
@@ -20,7 +20,7 @@ public class UserController {
 
     Role role;
     Department department;
-    Password password;
+
     private final DepartmentRepository departmentRepository;
     private final UsersRepository usersRepository;
     public UserController(UsersRepository usersRepository, DepartmentRepository departmentRepository){
