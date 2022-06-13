@@ -25,8 +25,9 @@
     </form:select><br>
 
     <label>Department:</label>
-    <form:select path="department"
-                 items="${department}" /><br>
+    <form:select  path="department">
+        <form:options itemLabel="departmentName" items="${department}"/> >
+    </form:select><br>
 
     <label>Status:</label>
     <form:select path="status">

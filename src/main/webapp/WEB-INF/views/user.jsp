@@ -83,6 +83,9 @@
 <form:form method="get" action="/adduser" modelAttribute="user">
     <input type="submit" value="Add new user">
 </form:form>
+<form:form method="get" action="/ticket" modelAttribute="ticket">
+    <input type="submit" value="TICKETS">
+</form:form>
 
 </body>
 </html>

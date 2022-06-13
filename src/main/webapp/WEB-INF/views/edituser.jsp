@@ -22,7 +22,7 @@
     <form:input path="email" type="text"/><br>
 
     <label>Password:</label>
-    <form:password  path="password.password"/><br>
+    <form:password  path="password"/><br>
 
     <label>Role:</label>
     <form:select path="role">

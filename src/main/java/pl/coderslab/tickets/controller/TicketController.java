@@ -134,7 +134,7 @@ public class TicketController {
     public String search(Filtr filtr, Model model){
         model.addAttribute("tickets", ticketService.search(filtr));
         model.addAttribute("department", departmentRepository.findAll() );
-        model.addAttribute("user",usersRepository.findAll());
+        model.addAttribute("users",usersRepository.findAll());
         return "ticket";
 
     }

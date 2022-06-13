@@ -33,9 +33,7 @@ public class User {
     @Email
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "password_id")
-    private Password password;
+    private String password;
 
     private Role role;
 
@@ -45,7 +43,7 @@ public class User {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    public User(long id, String firstName, String lastName, String email, Password password, Role role, Position position, Department department) {
+    public User(long id, String firstName, String lastName, String email, String password, Role role, Position position, Department department) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,5 +58,8 @@ public class User {
     public String toString() {
         return  email;
     }
+
+
+
 }
 

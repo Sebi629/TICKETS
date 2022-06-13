@@ -106,6 +106,9 @@
 <form:form method="get" action="/addticket" modelAttribute="ticket">
     <input type="submit" value="Add new ticket">
 </form:form>
+<form:form method="get" action="/user" modelAttribute="user">
+    <input type="submit" value="Users">
+</form:form>
 
 
 </body>
