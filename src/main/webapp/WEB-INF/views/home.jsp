@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>TESTOWY NAPIS</h1>
+<h1>TESTOWY NAPIS  </h1>
 
 <%--<form:form method="post" action="/home" modelAttribute="actual">--%>
 

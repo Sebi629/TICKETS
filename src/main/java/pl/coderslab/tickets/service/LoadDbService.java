@@ -3,11 +3,11 @@ package pl.coderslab.tickets.service;
 import org.springframework.stereotype.Service;
 import pl.coderslab.tickets.model.*;
 import pl.coderslab.tickets.repository.DepartmentRepository;
+import pl.coderslab.tickets.repository.RoleRepository;
 import pl.coderslab.tickets.repository.TicketsRepository;
 import pl.coderslab.tickets.repository.UsersRepository;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Service
 public class LoadDbService {
@@ -15,11 +15,13 @@ public class LoadDbService {
     private DepartmentRepository departmentRepository;
     private UsersRepository usersRepository;
     private TicketsRepository ticketsRepository;
+    private RoleRepository roleRepository;
 
-    public LoadDbService(DepartmentRepository departmentRepository, UsersRepository usersRepository, TicketsRepository ticketsRepository) {
+    public LoadDbService(DepartmentRepository departmentRepository, UsersRepository usersRepository, TicketsRepository ticketsRepository, RoleRepository roleRepository) {
         this.departmentRepository = departmentRepository;
         this.usersRepository = usersRepository;
         this.ticketsRepository = ticketsRepository;
+        this.roleRepository = roleRepository;
     }
     public void loadDb(){
 
@@ -37,13 +39,22 @@ public class LoadDbService {
         department4.setDepartmentName("administration");
         departmentRepository.save(department4);
 
+        //role
+        Role role1 = new Role();
+        role1.setName("USER");
+        roleRepository.save(role1);
+
+        Role role2 = new Role();
+        role2.setName("ADMIN");
+        roleRepository.save(role2);
+
         //user
         User user1 = new User();
         user1.setFirstName("Przemysław");
         user1.setLastName("Woźniak");
         user1.setEmail("przemyslaw.wozniak@company.com");
         user1.setPassword("12345");
-        user1.setRole(Role.valueOf("USER"));
+        user1.setRole(roleRepository.findRoleByName("USER"));
         user1.setPosition(Position.valueOf("USER"));
         user1.setDepartment(department1);
         usersRepository.save(user1);
@@ -53,7 +64,7 @@ public class LoadDbService {
         user2.setLastName("Kamiński");
         user2.setEmail("ksawery.kaminski@company.com");
         user2.setPassword("12345");
-        user2.setRole(Role.valueOf("ADMIN"));
+        user2.setRole(roleRepository.findRoleByName("ADMIN"));
         user2.setPosition(Position.valueOf("USER"));
         user2.setDepartment(department2);
         usersRepository.save(user2);
@@ -63,7 +74,7 @@ public class LoadDbService {
         user3.setLastName("Pawlak");
         user3.setEmail("agatapawlak@company.com");
         user3.setPassword("12345");
-        user3.setRole(Role.valueOf("ADMIN"));
+        user3.setRole(roleRepository.findRoleByName("ADMIN"));
         user3.setPosition(Position.valueOf("DIRECTOR"));
         user3.setDepartment(department3);
         usersRepository.save(user3);
@@ -73,7 +84,7 @@ public class LoadDbService {
         user4.setLastName("Urbańska");
         user4.setEmail("laraurbanska@company.com");
         user4.setPassword("12345");
-        user4.setRole(Role.valueOf("USER"));
+        user4.setRole(roleRepository.findRoleByName("USER"));
         user4.setPosition(Position.valueOf("MANAGER"));
         user4.setDepartment(department4);
         usersRepository.save(user4);
