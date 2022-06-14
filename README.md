@@ -1,7 +1,7 @@
 # Projekt Tickets:
 
 
-Jest to aplikacja webowa umożliwiająca pracownikom firmy company.com zlecać ticketów administracji.
+Jest to aplikacja webowa umożliwiająca pracownikom firmy company.com zlecanie ticketów administracji.
 
 # Możliwości:
 
