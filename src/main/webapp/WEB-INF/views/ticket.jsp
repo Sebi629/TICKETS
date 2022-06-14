@@ -9,7 +9,7 @@
 <h2>Search:</h2>
 
 <form:form method="post" action="/search" modelAttribute="filtr">
-<%--<form:form method="post" action="/ticketByDepartment" modelAttribute="filtr">--%>
+
     <label>User</label>
     <form:select path="user">
         <form:option value="" label="--Please Select--"/>

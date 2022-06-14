@@ -29,15 +29,13 @@
 
         <th>Email</th>
 
-        <th>Password</th>
-
         <th>Role</th>
 
         <th>Position</th>
 
         <th>Department</th>
 
-        <%--        <th>Akcja</th>--%>
+        <th>Akcja</th>
 
     </tr>
 
@@ -54,8 +52,6 @@
             <td>${user.lastName}</td>
 
             <td>${user.email}</td>
-
-            <td>${user.password}</td>
 
             <td>${user.role}</td>
 

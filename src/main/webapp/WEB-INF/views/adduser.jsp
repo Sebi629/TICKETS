@@ -25,7 +25,7 @@
 
     <label>Role:</label>
     <form:select path="role">
-        <form:options items="${role}" /><br>
+        <form:options itemLabel="name" items="${role}" /><br>
     </form:select><br>
 
     <label>Position:</label>
