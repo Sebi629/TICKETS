@@ -1,9 +1,9 @@
-Projekt Tickets:
+# Projekt Tickets:
 
 
 Jest to aplikacja webowa umożliwiająca pracownikom firmy company.com zlecać ticketów administracji.
 
-Możliwości:
+# Możliwości:
 
 
 W TICKETS można pracować na ticketach lub userach. W finalnej wersji obsługa userów będzie zarezerwowana tylko dla adminów ale nie jest to jeszcze zaimplementowane.
@@ -19,7 +19,7 @@ W sekcji ticketów jest lista ticketów dodawanie, edytowanie, usuwanie oraz fil
 -status
 
 
-Jak zacząć:
+# Jak zacząć:
 
 
 Należy pobrać do siebie repozytorium i odpalic. Założyć bazę danych o nazwie tickets. Username do bazy to root, a password to coderslab.Aplikację należy uruchomić przez adres:
