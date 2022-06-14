@@ -24,24 +24,12 @@ public class FiltrDao {
                 .setParameter("status", status)
                 .getResultList();
     }
-    public List<Ticket> findByDepartment(Department department){
-
-//        Query query = entityManager.createQuery( "SELECT t from Ticket t where t.department = :department");
-//        if(department==null){
-//            entityManager.createQuery("SELECT t from Ticket t");
-//        };
-
+    public List<Ticket> findByDepartment(Department department) {
         return entityManager
                 .createQuery("SELECT t from Ticket t where t.department = :department")
                 .setParameter("department", department)
                 .getResultList();
-//        return query.getResultList();
-    }
-//    public List<Ticket> serchTickets(Filtr filtr){
-//        Query query = entityManager.createQuery("SELECT t from Ticket t where t.department = :department");
-//        if(filtr.getDepartment()!=null){
-//
-//        }
 
+    }
 
 }

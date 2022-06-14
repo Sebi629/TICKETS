@@ -10,6 +10,7 @@ import pl.coderslab.tickets.model.Department;
 import pl.coderslab.tickets.model.Role;
 import pl.coderslab.tickets.model.User;
 import pl.coderslab.tickets.repository.DepartmentRepository;
+import pl.coderslab.tickets.repository.RoleRepository;
 import pl.coderslab.tickets.repository.UsersRepository;
 
 import java.util.List;
@@ -23,9 +24,11 @@ public class UserController {
 
     private final DepartmentRepository departmentRepository;
     private final UsersRepository usersRepository;
-    public UserController(UsersRepository usersRepository, DepartmentRepository departmentRepository){
+    private  final RoleRepository roleRepository;
+    public UserController(UsersRepository usersRepository, DepartmentRepository departmentRepository, RoleRepository roleRepository){
         this.usersRepository = usersRepository;
         this.departmentRepository = departmentRepository;
+        this.roleRepository = roleRepository;
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
@@ -39,6 +42,8 @@ public class UserController {
     public String adduser(Model model){
 
         List<Department> departmentList = departmentRepository.findAll();
+        List<Role> roleList = roleRepository.findAll();
+        model.addAttribute("role", roleList);
         model.addAttribute("department", departmentList);
         model.addAttribute("user", new User());
         return "adduser";
@@ -52,6 +57,8 @@ public class UserController {
     @RequestMapping(value = "/edituser/{id}", method = RequestMethod.GET)
     public String editUser(@PathVariable long id,Model model){
         List<Department> departmentList = departmentRepository.findAll();
+        List<Role> roleList = roleRepository.findAll();
+        model.addAttribute("role", roleList);
         model.addAttribute("department", departmentList);
         model.addAttribute("user", usersRepository.findById(id));
         return "edituser";
