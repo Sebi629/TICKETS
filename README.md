@@ -8,7 +8,7 @@ Jest to aplikacja webowa umożliwiająca pracownikom firmy company.com zlecać t
 
 W TICKETS można pracować na ticketach lub userach. W finalnej wersji obsługa userów będzie zarezerwowana tylko dla adminów ale nie jest to jeszcze zaimplementowane.
 Na chwilę obecną można przeglądać listę userów a także ich dodawac, edytować i usuwać.
-W sekcji ticketów jest lista ticketów dodawanie, edytowanie, usuwanie oraz filtrowanie po maksymalnie czterech selectach:
+W sekcji ticketów jest lista ticketów dodawanie, edytowanie, usuwanie oraz filtrowanie po maksymalnie czterech selectach jednocześnie:
 
 -user
 
